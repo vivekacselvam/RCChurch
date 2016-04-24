@@ -1,0 +1,33 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Bible.aspx.cs" Inherits="Bible" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div>
+    <table width="100%" height="200px" bgcolor="black">
+    <tr>
+    <td align="center">
+    <asp:Timer runat="server" id="UpdateTimer" interval="1000" ontick="UpdateTimer_t" />
+    <asp:UpdatePanel ID="update1" runat="server" updatemode="Conditional">
+<Triggers>
+                <asp:AsyncPostBackTrigger controlid="UpdateTimer" eventname="tick" />
+            </Triggers>
+    <ContentTemplate>
+    <asp:Label ID="lblbible" runat="server" Width="50%" ForeColor="White" Font-Bold="true" />
+    </ContentTemplate>
+    </asp:UpdatePanel>
+    </td>
+    </tr>
+    </table>
+    </div>
+    </form>
+</body>
+</html>
